@@ -25,19 +25,16 @@ const boardPage = async ({ params: params }) => {
   console.log(taskDone)
 //   console.log(task)
   return (
-    <main className="flex h-screen mb-2">
-      <div className=" flex flex-col w-[280px] outline rounded-md h-full p-2">
-        <span className="">{` To do (${taskTodo.length})`}</span>
-      </div>
-      <div className="ml-3 flex flex-col w-[280px] outline rounded-md h-full p-2">
-        <span className="">{` Doing (${taskDoing.length})`}</span>
-      </div>
-      <div className="ml-3 flex flex-col w-[280px] outline rounded-md h-full p-2">
-      <span className="">{` Done (${taskDone.length})`}</span>
-      </div>
-      <div>
-
-      </div>
+    <main className="flex h-screen mb-2 overflow-y-scroll">
+      {Board.columns.map((column, index) => (
+        <div
+          key={index}
+          className="ml-3 flex flex-col flex-shrink-0 w-[280px] outline rounded-md h-full p-2"
+        >
+          <span className="ml-2">{`${column.name} (${column.Tasks.length})`}</span>
+          {/* Render tasks here */}
+        </div>
+      ))}
     </main>
   );
 };

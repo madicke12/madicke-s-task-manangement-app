@@ -9,7 +9,7 @@ const layout=({children})=>{
       </div>
       <div className="w-full px-2 py-4">
       <Navbar/>
-      <div className="flex-grow p-6  md:py-5">{children}</div>
+      <div className="flex-grow   md:py-5">{children}</div>
       </div>
     </div>
     )
