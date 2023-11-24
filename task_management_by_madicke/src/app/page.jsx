@@ -3,7 +3,7 @@ export default function Home() {
   return (
     <main className="p-3 h-screen flex flex-col gap-3">
       
-      <header className="w-full bg-sky-200 flex items-end p-4 rounded-lg h-[200px]">
+      <header className="w-full bg-primary flex items-end p-4 rounded-lg h-[200px]">
         <div className="flex items-center text-black">
           <h1 className=" text-3xl text-black">ZenTasker </h1>
           <svg
@@ -30,7 +30,7 @@ export default function Home() {
             set priorities, and track progress. Your all-in-one solution for
             productivity.
           </p>
-        <Link href={'/login'} className='btn lg:btn-wide hover:bg-sky-200  btn-outline btn-ghost mt-3 rounded-lg'>
+        <Link href={'/login'} className='btn lg:btn-wide hover:bg-primary btn-outline btn-ghost mt-3 rounded-lg'>
           Get started
         </Link>
         </div>
