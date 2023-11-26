@@ -1,29 +1,46 @@
 
-import { PrismaClient } from '@prisma/client'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu"
+import { Menubar } from '@/components/ui/menubar'
+import Image from 'next/image'
 import Link from 'next/link'
-export default function Navbar() {
+
+
+export default function Navbar({boardName}) {
+  console.log(boardName)
   return (
-    <div className="navbar outline px-3 py-4  rounded-lg h-20 ">
-    <div className="flex-1">
-      <span  className="text-xl">daisyUI</span>
-    </div>
-    <div className="flex-none gap-2">
-      <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img alt="Tailwind CSS Navbar component" src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </label>
-        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-          <li>
-            <Link href={'#'} className="justify-between">
-              Profile
-            </Link>
-          </li>
-          <li><Link href={'#'}>Logout</Link></li>
-        </ul>
+    <Menubar
+      className="flex px-3 py-4 w-full rounded-lg h-20 "
+      variant="outline"
+    >
+      <div className="flex-1">
+        <span className="text-xl">{boardName}</span>
       </div>
-    </div>
-  </div>
-  )
+      <div className="flex-none gap-2">
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Avatar>
+              <AvatarImage>
+                <Image src="djjj.jpg" />
+              </AvatarImage>
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <Link href="/profile">
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+            </Link>
+            <Link href={'#'}>
+              <DropdownMenuItem>Log out</DropdownMenuItem>
+            </Link>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+    </Menubar>
+  );
 }
