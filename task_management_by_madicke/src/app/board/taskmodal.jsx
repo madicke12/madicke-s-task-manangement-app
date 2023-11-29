@@ -17,7 +17,7 @@ const TaskModal = ({ madicke }) => {
   //console.log(madicke.Subtasks)
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger >
         <Card className=" w-[270px] h-fit ">
           <CardHeader className="text-left">
             <span className="text-xl ">{madicke.titre}</span>

@@ -15,7 +15,7 @@ const Sidenav = () => {
         className="mb-2 flex  items-end justify-start rounded-md   p-3 "
         href="/"
       >
-        <div className="w-32 md:w-40 items-center">
+        <div className="w-32 md:w-40 flex items-center">
           <span className=" dark:text-white text-black text-xl">ZenTasker</span>
         </div>
       </Link>

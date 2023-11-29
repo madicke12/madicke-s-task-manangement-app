@@ -16,7 +16,7 @@ export function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" >Edit Profile</Button>
+        <Button variant="outline" ><PlusIcon height={20}/> Add new Board</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <form action="">
