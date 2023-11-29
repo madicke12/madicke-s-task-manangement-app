@@ -6,7 +6,7 @@ import TaskModal from "../taskmodal";
 const boardPage = async ({ params: params }) => {
   const prisma = new PrismaClient();
   const id = params.id;
-  console.log(id);
+ // console.log(id);
   const Board = await prisma.board.findUnique({
     where: { id },
     include: {
