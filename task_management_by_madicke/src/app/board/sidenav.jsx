@@ -25,7 +25,6 @@ const Sidenav = () => {
         <NavLinks />
         <DialogDemo/>
         </div>
-        <ModeToggle/>
       </div>
     </div>
   );

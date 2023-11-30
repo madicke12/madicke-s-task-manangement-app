@@ -9,6 +9,7 @@ import {
 import { Menubar } from '@/components/ui/menubar'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ModeToggle } from "./mode-toggle"
 
 
 export default function Navbar({boardName}) {
@@ -21,7 +22,9 @@ export default function Navbar({boardName}) {
       <div className="flex-1">
         <span className="text-xl">{boardName}</span>
       </div>
-      <div className="flex-none gap-2">
+      <div className="flex items-center gap-2">
+      <ModeToggle/>
+
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>

@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { Label } from "@/components/ui/label";
+import CheckTask from "./checktask";
 
 const TaskModal = ({ madicke }) => {
   //console.log(madicke.Subtasks)
@@ -35,9 +36,7 @@ const TaskModal = ({ madicke }) => {
           <span>Subtask {" (1 of 3)"} </span>
 
           {madicke.Subtasks.map((cisse) => (
-            <div className="hover:bg-slate-200 px-1 mt-2 flex items-center" key={cisse.taskId}>
-             <Input className='w-[17px] mr-2' type='checkbox' id='task'/> <Label htmlFor='task'>{cisse.name}</Label>
-            </div>
+            <CheckTask key={cisse.taskId} cisse={cisse}/>
           ))}
         </div>
       </DialogContent>

@@ -13,13 +13,12 @@ const LinkS = ({ boards }) => {
       return (
         <Button asChild className="" variant="outline"> 
           <Link
-          variant="outline"
           key={link.name}
           href={`/board/${encodeURIComponent(link.id)}`}
           className={clsx(
-            "flex h-[48px] justify-center items-center  mb-3 gap-2 rounded-md mt-2 p-3 text-sm font-medium   md:flex-none md:justify-start md:p-2 md:px-3",
+            "flex h-[48px] justify-center items-center hover:bg-zinc-900 mb-3 gap-2 rounded-md mt-2 p-3 text-sm font-medium   md:flex-none md:justify-start md:p-2 md:px-3",
             {
-              " bg-zinc-950 dark:bg-white dark:bg dark:text-zinc-950 text-white":pathName === `/board/${encodeURIComponent(link.id)}`,
+              " bg-zinc-950 dark:bg-zinc-800  text-white":pathName === `/board/${encodeURIComponent(link.id)}`,
             }
           )}
        
