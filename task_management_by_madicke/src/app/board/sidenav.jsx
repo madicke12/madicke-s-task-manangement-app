@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/card";
 import { ModeToggle } from "./mode-toggle";
 const Sidenav = () => {
   return (
-    <div className="flex h-full flex-col px-3  md:px-2 ">
+    <div className="flex h-full flex-col px-3  md:px-2">
      <Card className="h-20">
      <Link
         className="mb-2 flex  items-end justify-start rounded-md   p-3 "

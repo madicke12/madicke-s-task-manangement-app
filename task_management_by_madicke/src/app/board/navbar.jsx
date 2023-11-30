@@ -10,6 +10,7 @@ import { Menubar } from '@/components/ui/menubar'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ModeToggle } from "./mode-toggle"
+import AddNewTask from "./addNewTask"
 
 
 export default function Navbar({boardName}) {
@@ -23,7 +24,9 @@ export default function Navbar({boardName}) {
         <span className="text-xl">{boardName}</span>
       </div>
       <div className="flex items-center gap-2">
-      <ModeToggle/>
+        <AddNewTask />
+      
+        <ModeToggle />
 
         <DropdownMenu>
           <DropdownMenuTrigger>
@@ -38,7 +41,7 @@ export default function Navbar({boardName}) {
             <Link href="/profile">
               <DropdownMenuItem>Profile</DropdownMenuItem>
             </Link>
-            <Link href={'#'}>
+            <Link href={"#"}>
               <DropdownMenuItem>Log out</DropdownMenuItem>
             </Link>
           </DropdownMenuContent>
