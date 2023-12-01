@@ -13,6 +13,7 @@ import { ModeToggle } from "./mode-toggle"
 import AddNewTask from "./addNewTask"
 
 
+
 export default function Navbar({boardName}) {
   console.log(boardName)
   return (
@@ -24,10 +25,8 @@ export default function Navbar({boardName}) {
         <span className="text-xl">{boardName}</span>
       </div>
       <div className="flex items-center gap-2">
-        <AddNewTask />
-      
+        <AddNewTask/>
         <ModeToggle />
-
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Avatar>
