@@ -35,8 +35,8 @@ export default function Home() {
             set priorities, and track progress. Your all-in-one solution for
             productivity.
           </p>
-       <Button asChild variant="outline" className='mt-2 dark:hover:bg-white dark:hover:text-black' >
-       <Link href={'/login'} >
+       <Button asChild  className='mt-2 bg-white text-black dark:hover:text-black' >
+       <Link href={'/signup'} >
           Get started
         </Link>
        </Button>
