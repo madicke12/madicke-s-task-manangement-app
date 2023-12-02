@@ -4,8 +4,7 @@
 
 ## Overview
 
-Welcome to the Task Manager App, a powerful tool to streamline your task organization. Whether you're an individual user or part of a team, this app provides an intuitive and efficient solution to manage your tasks and boost productivity.
-
+Welcome to the Task Manager App – your go-to tool for effortless task management.This app keeps things simple, intuitive, and boosts your productivity.
 ## Features
 
 - **Task Creation:** Easily create tasks with details such as title, description, and due date.
@@ -16,9 +15,8 @@ Welcome to the Task Manager App, a powerful tool to streamline your task organiz
 
 ## Screenshots
 
-![Screenshot 1](link/to/screenshot1.png)
+![Screenshot 1]([link/to/screenshot1.png](https://github.com/madicke12/madicke-s-task-manangement-app/blob/main/task_management_by_madicke/src/app/assets/Screenshot.png?raw=true))
 ![Screenshot 2](link/to/screenshot2.png)
-
 ## Installation
 
 1. **Clone the Repository:**
