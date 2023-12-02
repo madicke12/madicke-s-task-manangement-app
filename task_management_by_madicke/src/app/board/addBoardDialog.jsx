@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import {PlusIcon} from "@heroicons/react/24/solid"
+import DynamicInput from "./dynamic-input"
 
 export function DialogDemo() {
   return (
@@ -39,7 +40,7 @@ export function DialogDemo() {
           </div>
           <div className="flex flex-col   mt-4 gap-4">
            <span>Board columns</span>
-           <Button> <PlusIcon height={20}/> Add New columns</Button>
+           <DynamicInput type='columns'/>
           </div>
         </div>
         <DialogFooter>
