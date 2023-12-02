@@ -1,40 +1,45 @@
-
-
-import  Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import Link from 'next/link'
 const login =()=>{
     return(
-        <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
+        <div className="flex items-center min-h-screen bg-zinc-800">
+        <div className="flex flex-col items-center  lg:flex-row-reverse">
+          <div className="text-center lg:text-left ml-2">
             <h1 className="text-5xl font-bold">Log in and Take Charge</h1>
             <p className="py-6">Your tasks, your way. Unlock the full potential of Zentasker by logging in and managing your workload effortlessly.</p>
           </div>
-          <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-                <input type="email" placeholder="email" className="input input-bordered" required />
+          <Card className=" border-none  shrink-0 w-full max-w-sm  ">
+            <CardContent>
+            <form >
+              <div className="mb-2 form-control">
+                <Label htmlFor='email' >
+                  Email
+                </Label>
+                <Input type="email" id="email" placeholder="email" className="input input-bordered mt-2" required />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input type="password" placeholder="password" className="input input-bordered" required />
+              <div className="mb-2 form-control">
+                <Label htmlFor='pass' >
+                  Password
+                </Label>
+                <Input type="password" id='pass' placeholder="password" className="input input-bordered mt-2 mb-2" required />
                 <div className='flex justify-between'>
-                <label className="label">
+                <Label  >
                   <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
-                </label> <label className="label">
+                </Label> <Label  >
                   <Link href="/signup" className="label-text-alt link link-hover">Don't have an account? Signup</Link>
-                </label>
+                </Label>
                 </div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <Button variant='outline' className='w-full dark:hover:bg-white dark:hover:text-black'>Login</Button>
               </div>
             </form>
-          </div>
+            </CardContent>
+           
+          </Card>
         </div>
       </div>
     )

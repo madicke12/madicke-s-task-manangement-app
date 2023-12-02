@@ -1,9 +1,13 @@
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 
 import Link from 'next/link'
 const signup = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className=" flex items-center min-h-screen bg-zinc-800 p-3">
+      <div className="flex flex-col items-center lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">
             Start Your Productivity Journey
@@ -14,67 +18,66 @@ const signup = () => {
             here.
           </p>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <Card className="border-none shrink-0 w-full max-w-sm mr-2">
           <form className="card-body">
           <div className="form-control">
-              <label className="label">
-                <span className="label-text">Firts Name</span>
-              </label>
-              <input
+              <Label htmlFor='prenom'>
+                Firts Name
+              </Label>
+              <Input
+                id='prenom'
                 type="email"
-                placeholder="email"
-                className="input input-bordered"
+                placeholder="First Name"
+                className="mt-2 mb-2 input-bordered"
                 required
               />
             </div>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text"> Name</span>
-              </label>
-              <input
-                type="email"
-                placeholder="email"
-                className="input input-bordered"
+              <Label htmlFor='nom'>
+                 Name
+              </Label>
+              <Input
+              id='nom'
+                type="text"
+                placeholder="Name"
+                className="mt-2 mb-2 input-bordered"
                 required
               />
             </div>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
+              <Label htmlFor='email'>
+                Email
+              </Label>
+              <Input
                 type="email"
+                id='email'
                 placeholder="email"
-                className="input input-bordered"
+                className="mt-2 mb-2 input-bordered"
                 required
               />
             </div>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
+              <Label htmlFor='pass'>
+                Password
+              </Label>
+              <Input
+              id='pass'
                 type="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="mt-2 mb-2 input-bordered"
                 required
               />
               <div className="flex justify-between">
-                <label className="label">
-                  <Link
-                    href="/login"
-                    className="label-text-alt link link-hover"
-                  >
+                  <Link  href="/login" className='hover:underline'>
                     Already registred? Sign in
                   </Link>
-                </label>
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Signup</button>
+              <Button variant='outline'  className="w-full dark:bg-white border dark:hover:text-white border-white dark:hover:bg-transparent dark:text-black">Signup</Button>
             </div>
           </form>
-        </div>
+        </Card>
       </div>
     </div>
   );

@@ -1,12 +1,16 @@
 import Link  from 'next/link'
 
+import Image from 'next/image'
+import img from './assets/Screenshot.png'
+import { Button } from '@/components/ui/button';
+
 export default function Home() {
   return (
     <main className="p-3 h-screen flex flex-col gap-3">
       
-      <header className="w-full bg-primary flex items-end p-4 rounded-lg h-[200px]">
+      <header className="w-full bg-zinc-700 flex items-end p-4 rounded-lg h-[200px]">
         <div className="flex items-center text-black">
-          <h1 className=" text-3xl text-black">ZenTasker </h1>
+          <h1 className=" text-3xl dark:text-white text-black">ZenTasker </h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -31,17 +35,14 @@ export default function Home() {
             set priorities, and track progress. Your all-in-one solution for
             productivity.
           </p>
-        <Link href={'/login'} className='btn lg:btn-wide hover:bg-primary btn-outline btn-ghost mt-3 rounded-lg'>
+       <Button asChild variant="outline" className='mt-2 dark:hover:bg-white dark:hover:text-black' >
+       <Link href={'/login'} >
           Get started
         </Link>
+       </Button>
         </div>
         <div className="">
-          <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            itaque! Facilis nulla dolor, earum saepe ad harum nam fugit ipsum
-            consequuntur dolore iure optio error mollitia quis odit
-            reprehenderit placeat.
-          </h1>
+         <Image src={img} width={800} height={700}/>
         </div>
       </section>
     </main>
