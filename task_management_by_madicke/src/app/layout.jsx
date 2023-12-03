@@ -16,14 +16,19 @@ export default function RootLayout({children}) {
   return (
     <html lang="en" data-theme="dark">
       <body className={inter.className + "p-6"}> 
+      
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
+
           >
+          
             {children}
-          </ThemeProvider></body>
+
+          </ThemeProvider>
+      </body>
     </html>
   );
 }
