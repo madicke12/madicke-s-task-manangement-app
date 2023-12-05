@@ -1,11 +1,27 @@
-import Link  from 'next/link'
+'use client'
+import Link from 'next/link';
 
-import Image from 'next/image'
-import img from './assets/Screenshot.png'
+import Signin from '@/components/signIn';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import img from './assets/Screenshot.png';
+import { useEffect } from 'react';
+import { getServerSession } from 'next-auth';
+import { authOption } from './api/auth/[...nextauth]/route';
+import  {useRouter} from 'next/navigation'
 
-export default function Home() {
+export default async function Home() {
+const router = useRouter()
+  useEffect(()=>{
+    const b = async ()=>{
+      const user = getServerSession(authOption)
+      console.log(user)
+      if (user) router.push('/board')
+    }
+  b()
+  },[])
   return (
+    
     <main className="p-3 h-screen flex flex-col gap-3">
       
       <header className="w-full bg-zinc-700 flex items-end p-4 rounded-lg h-[200px]">
@@ -40,6 +56,8 @@ export default function Home() {
           Get started
         </Link>
        </Button>
+       
+       <Signin/>
         </div>
         <div className="">
          <Image src={img} width={800} height={700}/>
