@@ -23,6 +23,10 @@ export const authOption = {
       else if (new URL(url).origin === baseUrl) return url;
       return baseUrl;
     },
+    session: ({ session, token , user}) => ({
+      ...session,
+      user
+    }),
   },
 };
 

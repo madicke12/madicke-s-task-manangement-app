@@ -7,10 +7,10 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import img from './assets/Screenshot.png';
 
-export default   function Home() {
+export default  function Home() {
 
-  const {data} = useSession()
-  console.log(data)
+  const {data: session}= useSession()
+  console.log(session)
 
 
   return (
