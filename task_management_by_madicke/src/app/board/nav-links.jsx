@@ -4,10 +4,13 @@ import { PrismaClient } from "@prisma/client";
 import LinkS from "./link";
 import { getServerSession } from "next-auth";
 import { authOption } from "../api/auth/[...nextauth]/route";
+import { useSession } from "next-auth/react";
 
 const NavLinks = async () => {
   const prisma = new PrismaClient();
   const user = await getServerSession(authOption)
+  const {data }= useSession()
+  console.log(b)
   console.log(user)
   const boards = await prisma.board.findMany({
     where:{ userId:'656ccba13712d59d62191785'}

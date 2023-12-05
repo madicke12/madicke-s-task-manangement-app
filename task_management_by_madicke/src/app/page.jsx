@@ -3,23 +3,16 @@ import Link from 'next/link';
 
 import Signin from '@/components/signIn';
 import { Button } from '@/components/ui/button';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import img from './assets/Screenshot.png';
-import { useEffect } from 'react';
-import { getServerSession } from 'next-auth';
-import { authOption } from './api/auth/[...nextauth]/route';
-import  {useRouter} from 'next/navigation'
 
-export default async function Home() {
-const router = useRouter()
-  useEffect(()=>{
-    const b = async ()=>{
-      const user = getServerSession(authOption)
-      console.log(user)
-      if (user) router.push('/board')
-    }
-  b()
-  },[])
+export default   function Home() {
+
+  const {data} = useSession()
+  console.log(data)
+
+
   return (
     
     <main className="p-3 h-screen flex flex-col gap-3">
