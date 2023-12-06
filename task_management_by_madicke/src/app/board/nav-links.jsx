@@ -9,7 +9,7 @@ const NavLinks = async () => {
   const prisma = new PrismaClient();
   const user = await getServerSession(authOption)
   const boards = await prisma.board.findMany({
-    where:{ userId:'656ccba13712d59d62191785'}
+    where:{ userId: user.id}
   });
 
   return (

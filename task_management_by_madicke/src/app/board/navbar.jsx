@@ -1,16 +1,9 @@
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-} from "@/components/ui/dropdown-menu"
+
 import { Menubar } from '@/components/ui/menubar'
-import Image from 'next/image'
-import Link from 'next/link'
 import { ModeToggle } from "./mode-toggle"
 import AddNewTask from "./addNewTask"
+import Profile from '@/components/profile'
 
 
 
@@ -27,24 +20,7 @@ export default function Navbar({boardName}) {
       <div className="flex items-center gap-2">
         <AddNewTask/>
         <ModeToggle />
-        <DropdownMenu>
-          <DropdownMenuTrigger>
-            <Avatar>
-              <AvatarImage>
-                <Image src="djjj.jpg" />
-              </AvatarImage>
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <Link href="/profile">
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-            </Link>
-            <Link href={"#"}>
-              <DropdownMenuItem>Log out</DropdownMenuItem>
-            </Link>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Profile/>
       </div>
     </Menubar>
   );
