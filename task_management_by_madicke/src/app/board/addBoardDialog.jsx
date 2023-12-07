@@ -24,7 +24,7 @@ export function DialogDemo() {
         <DialogHeader>
           <DialogTitle>Add new Board</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+           Add a new board here click Create new Board when you're done
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
@@ -33,6 +33,7 @@ export function DialogDemo() {
               Board Name
             </Label>
             <Input
+              name='boardName'
               id="Boardname"
               placeholder="eg: Marketing Plan "
               className="col-span-3"
