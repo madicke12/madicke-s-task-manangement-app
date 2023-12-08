@@ -45,7 +45,7 @@ const DynamicInput = ({ type }) => {
           </Button>
         </div>
       ))}
-
+      <Input name='boards' value={inputCount.toString()} className="hidden"/>
       <Button
         type="button"
         onClick={handleAddInput}
