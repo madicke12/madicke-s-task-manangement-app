@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 export const AddBoardForm = async () => {
   return (
-    <form action={addBoard} method="post">
+    <form  method="post">
       <DialogHeader>
         <DialogTitle>Add new Board</DialogTitle>
         <DialogDescription>
