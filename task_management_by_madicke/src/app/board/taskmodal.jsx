@@ -21,12 +21,12 @@ const TaskModal = ({ madicke }) => {
   return (
     <Dialog>
       <DialogTrigger >
-        <Card className=" w-[270px] h-fit ">
-          <CardHeader className="text-left ">
+        <Card className=" w-[270px] h-fit overflow-hidden">
+          <CardHeader className="text-left p-2 overflow-ellipsis">
             <span className="text-xl ">{madicke.titre}</span>
-            <p className="mb-2 text-slate-400 text-ellipsis" >{madicke.description +"adjksnadoandakndakdnakdnakdnkdkdn"}</p>
           </CardHeader>
-          <CardContent className="text-left">
+          <CardContent className="text-left p-2">
+          <p className="mb-2 text-slate-400 text-ellipsis" >{madicke.description +"adjksnadoandakndakdnakdnakdnkdkdn"}</p>
             <p>0 of 3 task</p>
           </CardContent>
         </Card>
