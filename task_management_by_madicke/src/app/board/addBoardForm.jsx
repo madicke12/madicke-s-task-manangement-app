@@ -1,19 +1,22 @@
-'use server'
-import { addBoard } from "../utils/actions";
-import DynamicInput from "./dynamic-input";
-
+'use client'
+import { Button } from "@/components/ui/button";
 import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-export const AddBoardForm = async () => {
+import { Label } from "@/components/ui/label";
+import DynamicInput from "./dynamic-input";
+
+import { useSession } from "next-auth/react";
+import { submit } from "../APis/submit";
+
+ export const AddBoardForm =  () => {
+  const {data} = useSession()
   return (
-    <form  method="post">
+    <form  method="post" action={submit}>
       <DialogHeader>
         <DialogTitle>Add new Board</DialogTitle>
         <DialogDescription>
@@ -33,7 +36,8 @@ export const AddBoardForm = async () => {
           />
         </div>
         <div className="flex flex-col   mt-4 gap-4">
-          <span>Board columns</span>
+          <input className="hidden" value={data.user.id} name="userId"/>
+          <span>Board columns <span className="text-slate-600">{'(eg. To Do,In Progress,Done)'}</span></span>
           <DynamicInput type="columns" />
         </div>
       </div>
