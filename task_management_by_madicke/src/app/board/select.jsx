@@ -8,7 +8,7 @@ import {
 
 const StatusSelect = () => {
   return (
-    <Select>
+    <Select name="status">
       <SelectTrigger className="w-full">
         <SelectValue placeholder="chose the status" />
       </SelectTrigger>

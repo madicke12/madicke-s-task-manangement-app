@@ -7,18 +7,18 @@ import Profile from '@/components/profile'
 
 
 
-export default function Navbar({boardName}) {
-  console.log(boardName)
+export default async function Navbar({boardName ,id}) {
+
   return (
     <Menubar
       className="flex px-3 py-4 w-full rounded-lg h-20 "
       variant="outline"
     >
-      <div className="flex-1">
+      <div className="flex-1">s
         <span className="text-xl">{boardName}</span>
       </div>
       <div className="flex items-center gap-2">
-        <AddNewTask/>
+        <AddNewTask id={id}/>
         <ModeToggle />
         <Profile/>
       </div>

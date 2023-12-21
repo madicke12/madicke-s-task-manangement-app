@@ -10,21 +10,25 @@ const BoardSchema = z.object({
   columns: z.array(z.unknown()),
 });
 
+const TaskSchema = z.object({
+  description: z.string(),
+  titre: z.string(),
+  columnId: z.string(),
+  Subtasks: z.array(z.unknown()),
+});
+
 export const submit = async (formdata) => {
   const prisma = new PrismaClient();
 
   const columns = JSON.parse(formdata.get("columns")).map((item) => item.value);
   const name = formdata.get("boardName");
   const userId = formdata.get("userId");
-
-  console.log(columns);
-
   const data = {
     name,
     userId,
     columns,
   };
-  console.log(data.columns);
+  // console.log(data.columns);
   try {
     const parsedData = BoardSchema.parse(data);
     parsedData &&
@@ -37,6 +41,47 @@ export const submit = async (formdata) => {
         },
         include: {
           columns: true,
+        },
+      }));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const createTask = async (formdata) => {
+  let columnId;
+  const prisma = new PrismaClient();
+  const Subtasks = JSON.parse(formdata.get("subtasks")).map(
+    (item) => item.value
+  );
+  const titre = formdata.get("taskName");
+  const currentStatus = formdata.get("status");
+  const description = formdata.get("description");
+  const userId = formdata.get("userId");
+  const boardColumns = JSON.parse(formdata.get("columns"));
+
+  boardColumns.forEach((element) => {
+    if (element.name === currentStatus) columnId = element.id;
+  });
+
+  const data = {
+    description,
+    titre,
+    currentStatus,
+    Subtasks,
+    columnId,
+  };
+  console.log(data)
+  try {
+    const parsedData = TaskSchema.parse(data);
+    parsedData &&
+      (await prisma.task.create({
+        data: {
+          ...parsedData,
+          currentStatus,
+          Subtasks: {
+            create: parsedData.Subtasks.map((item) => ({ name: item })),
+          },
         },
       }));
   } catch (err) {

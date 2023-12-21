@@ -45,7 +45,7 @@ const DynamicInput = ({ type }) => {
           </Button>
         </div>
       ))}
-      <Input name='columns' value={JSON.stringify(inputCount)} className="hidden"/>
+      <Input name={`${type==='columns' ? 'columns' :'subtasks'}`} value={JSON.stringify(inputCount)} className="hidden"/>
       <Button
         type="button"
         onClick={handleAddInput}

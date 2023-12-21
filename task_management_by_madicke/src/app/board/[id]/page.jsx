@@ -15,7 +15,7 @@ const boardPage = async ({ params: params }) => {
   });
   return (
     <>
-      <Navbar boardName={Board.name} />
+      <Navbar boardName={Board.name} id={id} />
       <main className="flex w-full h-full overflow-y-scroll overflow-x-auto mt-3  p-3">
         {Board.columns.map((column, index) => (
           <div
