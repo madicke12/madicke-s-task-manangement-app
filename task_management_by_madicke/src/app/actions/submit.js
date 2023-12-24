@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { z } from "zod";
 import { authOption } from "../api/auth/[...nextauth]/route";
 import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from 'next/cache'
+import { revalidatePath } from "next/cache";
 
 const BoardSchema = z.object({
   name: z.string(),
@@ -103,18 +103,60 @@ export const checkSubtask = async (formdata) => {
     console.log(err);
   }
 };
-
-export const deleteBoard =async (formdata) => {
+export const deleteBoard = async (formdata) => {
   const boardId = formdata.get("id");
-  console.log(boardId)
-  // const prisma = new PrismaClient();
-  // try{
-  //   await prisma.board.delete({
-  //     where:{id:boardId}
-  //   })
-  //   revalidatePath('/board','layout')
-  // }
-  // catch(err){
-  //   console.log(err)
-  // }
+  const prisma = new PrismaClient();
+
+  try {
+    const boardToDelete = await prisma.board.findUnique({
+      where: { id: boardId },
+      include: {
+        columns: {
+          include: {
+            Tasks: {
+              include: {
+                Subtasks: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!boardToDelete) {
+      console.error(`Board with ID ${boardId} not found.`);
+      return;
+    }
+
+    await Promise.all(
+      boardToDelete.columns.map(async (column) =>
+        column.Tasks.map(async (task) => {
+          // Handle subtasks first
+          await Promise.all(
+            task.Subtasks.map(async (subtask) => {
+              await prisma.subtask.delete({
+                where: { id: subtask.id },
+              });
+            })
+          );
+          await prisma.task.delete({
+            where: { id: task.id },
+          });
+        })
+      )
+    );
+    await Promise.all(
+      boardToDelete.columns.map(async (column) => {
+        await prisma.column.delete({ where: { id: column.id } });
+      })
+    );
+    await prisma.board.delete({
+      where: { id: boardId },
+    });
+    // revalidatePath('/board', 'layout');
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await prisma.$disconnect();
+  }
 };
