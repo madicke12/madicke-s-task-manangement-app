@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { z } from "zod";
 import { authOption } from "../api/auth/[...nextauth]/route";
 import { PrismaClient } from "@prisma/client";
+import { revalidatePath } from 'next/cache'
 
 const BoardSchema = z.object({
   name: z.string(),
@@ -92,6 +93,7 @@ export const createTask = async (formdata) => {
 export const checkSubtask = async (formdata) => {
   const prisma = new PrismaClient();
   const subtaskId = formdata.get("subtaskId");
+  console.log(subtaskId);
   try {
     await prisma.subtask.update({
       where: { id: subtaskId },
@@ -99,5 +101,18 @@ export const checkSubtask = async (formdata) => {
     });
   } catch (err) {
     console.log(err);
+  }
+};
+
+export const deleteBoard =async (formdata) => {
+  const boardId = formdata.get("id");
+  const prisma = new PrismaClient();
+  try{
+    await prisma.board.delete({
+      where:{id:boardId}
+    })
+  }
+  catch(err){
+    console.log(err)
   }
 };
