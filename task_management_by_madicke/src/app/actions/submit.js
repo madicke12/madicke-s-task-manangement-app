@@ -71,7 +71,7 @@ export const createTask = async (formdata) => {
     Subtasks,
     columnId,
   };
-  console.log(data)
+  console.log(data);
   try {
     const parsedData = TaskSchema.parse(data);
     parsedData &&
@@ -84,6 +84,19 @@ export const createTask = async (formdata) => {
           },
         },
       }));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const checkSubtask = async (formdata) => {
+  const prisma = new PrismaClient();
+  const subtaskId = formdata.get("subtaskId");
+  try {
+    await prisma.subtask.update({
+      where: { id: subtaskId },
+      data: { isDone: true },
+    });
   } catch (err) {
     console.log(err);
   }

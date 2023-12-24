@@ -6,21 +6,21 @@ const prisma = new PrismaClient.PrismaClient;
 async function seed() {
   try {
     // Create a board with columns 'ownerproof-3480749-1701464923-361ca95b6572'
-    // const board = await prisma.board.create({
-    //   data: {
-    //     name: 'Sample Board',
-    //     columns: {
-    //       create: [
-    //         { name: 'To Do' },
-    //         { name: 'In Progress' },
-    //         { name: 'Done' },
-    //       ],
-    //     },
-    //   },
-    //   include: {
-    //      columns: true,
-    //   },
-    // });
+    const board = await prisma.board.create({
+      data: {
+        name: 'Sample Board',
+        columns: {
+          create: [
+            { name: 'To Do' },
+            { name: 'In Progress' },
+            { name: 'Done' },
+          ],
+        },
+      },
+      include: {
+         columns: true,
+      },
+    });
 
     // if (!board.columns || board.columns.length === 0) {
     //   console.error('Error: Board columns are undefined or empty.');

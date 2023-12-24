@@ -17,7 +17,7 @@ import { authOption } from "../api/auth/[...nextauth]/route";
 import DynamicInput from "./dynamic-input";
 import StatusSelect from "./select";
 import { PrismaClient } from "@prisma/client";
-import { createTask } from "../APis/submit";
+import { createTask } from "../actions/submit";
 
 const AddNewTask = async({id}) => {
   const prisma = new PrismaClient()  

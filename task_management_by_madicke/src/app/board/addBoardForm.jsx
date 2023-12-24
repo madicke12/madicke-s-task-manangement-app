@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import DynamicInput from "./dynamic-input";
 
 import { useSession } from "next-auth/react";
-import { submit } from "../APis/submit";
+import { submit } from "../actions/submit";
 
  export const AddBoardForm =  () => {
   const {data} = useSession()
