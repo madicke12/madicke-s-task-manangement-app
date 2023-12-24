@@ -39,7 +39,7 @@ const TaskModal = ({ madicke }) => {
           <span>Subtask {" (1 of 3)"} </span>
 
           {madicke.Subtasks.map((cisse) => (
-            <CheckTask key={cisse.taskId} cisse={cisse}/>
+            <CheckTask key={cisse.id} cisse={cisse}/>
           ))}
           <div className=" px-1 mt-2  items-center"   >
                 <span>Current status</span>

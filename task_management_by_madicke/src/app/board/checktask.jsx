@@ -11,7 +11,7 @@ const CheckTask = ({ cisse }) => {
   const handleClick = () => {
     setChecked(!isChecked);
     const form = document.getElementById('samaForm');
-    form.submit();
+    form.requestSubmit();
   };
 
   return (

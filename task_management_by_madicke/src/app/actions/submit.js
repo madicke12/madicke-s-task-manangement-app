@@ -106,13 +106,15 @@ export const checkSubtask = async (formdata) => {
 
 export const deleteBoard =async (formdata) => {
   const boardId = formdata.get("id");
-  const prisma = new PrismaClient();
-  try{
-    await prisma.board.delete({
-      where:{id:boardId}
-    })
-  }
-  catch(err){
-    console.log(err)
-  }
+  console.log(boardId)
+  // const prisma = new PrismaClient();
+  // try{
+  //   await prisma.board.delete({
+  //     where:{id:boardId}
+  //   })
+  //   revalidatePath('/board','layout')
+  // }
+  // catch(err){
+  //   console.log(err)
+  // }
 };
