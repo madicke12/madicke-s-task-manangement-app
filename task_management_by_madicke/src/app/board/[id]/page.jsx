@@ -26,7 +26,7 @@ const boardPage = async ({ params: params }) => {
               className={`mb-4 rounded-xl w-fit px-1 font-bold ${
                 column.name === "Done" ? "bg-green-800" : null
               } ${column.name === "To Do" ? "bg-sky-800" : null} ${
-                column.name === "In Progress" ? "bg-yellow-800" : null
+                column.name === "Doing" ? "bg-yellow-800" : null
               }`}
             >{`${column.name} (${column.Tasks.length})`}</span>
 

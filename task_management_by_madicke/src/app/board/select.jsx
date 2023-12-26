@@ -6,20 +6,21 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+const value = ["To Do", "Doing", "Done"];
 const StatusSelect = () => {
+  const SelectElements = value.map((item) => (
+    <SelectItem key={item} value={item}>
+      {item}
+    </SelectItem>
+  ));
   return (
     <Select name="status">
       <SelectTrigger className="w-full">
         <SelectValue placeholder="chose the status" />
       </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="To Do">To Do</SelectItem>
-        <SelectItem value="Doing">Doing</SelectItem>
-        <SelectItem value="Done">Done</SelectItem>
-      </SelectContent>
+      <SelectContent>{SelectElements}</SelectContent>
     </Select>
   );
 };
 
-
-export default StatusSelect
+export default StatusSelect;

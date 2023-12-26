@@ -1,9 +1,6 @@
 "use server";
-import { getServerSession } from "next-auth";
-import { z } from "zod";
-import { authOption } from "../api/auth/[...nextauth]/route";
 import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
 const BoardSchema = z.object({
   name: z.string(),
@@ -81,7 +78,7 @@ export const createTask = async (formdata) => {
           ...parsedData,
           currentStatus,
           Subtasks: {
-            create: parsedData.Subtasks.map((item) => ({ name: item })),
+            create: parsedData.Subtasks.map((item) => ({ name: item , isDone:false })),
           },
         },
       }));
@@ -131,7 +128,6 @@ export const deleteBoard = async (formdata) => {
     await Promise.all(
       boardToDelete.columns.map(async (column) =>
         column.Tasks.map(async (task) => {
-          // Handle subtasks first
           await Promise.all(
             task.Subtasks.map(async (subtask) => {
               await prisma.subtask.delete({
@@ -160,3 +156,10 @@ export const deleteBoard = async (formdata) => {
     await prisma.$disconnect();
   }
 };
+
+
+export const changeTaskStatus =async(FormData)=>{
+  const taskid= FormData.get('taskId')
+  const statusName = FormData.get('status')
+  console.log(taskid,statusName)
+}
