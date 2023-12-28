@@ -38,7 +38,7 @@ const TaskModal = ({ madicke }) => {
           ))}
           <div className=" px-1 mt-2  items-center">
             <span>Current status</span>
-           <TaskStatusSelect/>
+           <TaskStatusSelect cisse={madicke}/>
           </div>
         </div>
       </DialogContent>
