@@ -27,6 +27,7 @@ const CheckTask = ({ cisse }) => {
           checked={isChecked}
           value={cisse.id}
           name='subtaskId'
+          readOnly
         />
         <Label htmlFor="task">{cisse.name}</Label>
       </div>

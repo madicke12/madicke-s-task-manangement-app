@@ -23,7 +23,7 @@ export const TaskStatusSelect = ({cisse}) => {
         </SelectTrigger>
         <SelectContent>{SelectElements}</SelectContent>
       </Select>
-      <input type="text" value={cisse.id} name="taskId" className="hidden"/>
+      <input type="text" value={cisse.id} readOnly name="taskId" className="hidden"/>
       <Button type='submit'>save</Button>
     </form>
   );

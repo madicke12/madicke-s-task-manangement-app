@@ -30,7 +30,7 @@ const LinkS = ({ boards }) => {
             </Link>
           </Button>
             <form action={deleteBoard}>
-            <input type="text" name='id' value={link.id} className="hidden" />
+            <input type="text" name='id' readOnly value={link.id} className="hidden" />
           <Button type='submit'  className='hover:cursor-pointer'>
             <TrashIcon height={20}/>
           </Button>
