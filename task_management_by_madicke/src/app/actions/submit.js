@@ -1,6 +1,7 @@
 "use server";
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
+import {revalidatePath} from 'next/cache'
 
 const BoardSchema = z.object({
   name: z.string(),
@@ -18,7 +19,7 @@ const TaskSchema = z.object({
 export const submit = async (formdata) => {
   const prisma = new PrismaClient();
 
-  const columns = JSON.parse(formdata.get("columns")).map((item) => item.value);
+  const columns = JSON.parse(formdata.get("columns"));
   const name = formdata.get("boardName");
   const userId = formdata.get("userId");
   const data = {
@@ -26,7 +27,7 @@ export const submit = async (formdata) => {
     userId,
     columns,
   };
-  // console.log(data.columns);
+  console.log(columns);
   try {
     const parsedData = BoardSchema.parse(data);
     parsedData &&
@@ -172,6 +173,7 @@ export const changeTaskStatus = async (FormData) => {
         currentStatus: statusName,
       },
     });
+    revalidatePath('/board','layout')
   } catch (err) {
     console.log(err);
   }
