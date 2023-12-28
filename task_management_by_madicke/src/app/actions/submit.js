@@ -78,7 +78,10 @@ export const createTask = async (formdata) => {
           ...parsedData,
           currentStatus,
           Subtasks: {
-            create: parsedData.Subtasks.map((item) => ({ name: item , isDone:false })),
+            create: parsedData.Subtasks.map((item) => ({
+              name: item,
+              isDone: false,
+            })),
           },
         },
       }));
@@ -157,9 +160,20 @@ export const deleteBoard = async (formdata) => {
   }
 };
 
+export const changeTaskStatus = async (FormData) => {
+  const prisma = new PrismaClient();
+  const taskid = FormData.get("taskId");
+  const statusName = FormData.get("status");
 
-export const changeTaskStatus =async(FormData)=>{
-  const taskid= FormData.get('taskId')
-  const statusName = FormData.get('status')
-  console.log(taskid,statusName)
-}
+  try {
+    await prisma.task.update({
+      where: { id: taskid },
+      data: {
+        currentStatus: statusName,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+  console.log(taskid, statusName);
+};
