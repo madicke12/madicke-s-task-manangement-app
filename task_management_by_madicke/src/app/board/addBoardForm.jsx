@@ -37,12 +37,11 @@ import { submit } from "../actions/submit";
         </div>
         <div className="flex flex-col   mt-4 gap-4">
           <input className="hidden" value={data.user.id} name="userId"/>
-          <span>Board columns <span className="text-slate-600">{'(eg. To Do,In Progress,Done)'}</span></span>
-          <DynamicInput type="columns" />
+         <input type="text" className="hidden" value={JSON.stringify(['To Do','Doing','Done'])} readOnly name="columns" />
         </div>
       </div>
       <DialogFooter>
-        <Button className="w-full" type="submit">
+        <Button className="w-full dark:hover:bg-white dark:hover:text-black" type="submit">
           Create new Board
         </Button>
       </DialogFooter>
