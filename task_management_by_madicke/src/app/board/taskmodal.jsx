@@ -14,14 +14,14 @@ const TaskModal = ({ madicke }) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <Card className=" w-[270px] h-fit overflow-hidden">
-          <CardHeader className="text-left p-2 overflow-ellipsis">
+        <Card className=" w-[270px] h-fit">
+          <CardHeader className="text-left p-2 ">
             <span className="text-xl ">{madicke.titre}</span>
           </CardHeader>
-          <CardContent className="text-left p-2">
-            <p className="mb-2 text-slate-400 text-ellipsis">
-              {madicke.description + "adjksnadoandakndakdnakdnakdnkdkdn"}
-            </p>
+          <CardContent className="text-left  w-[270px] p-2">
+            <span className="mb-2 text-slate-400 w-full">
+              {madicke.description.slice(0,40)+'...'}
+            </span>
             <p>0 of 3 task</p>
           </CardContent>
         </Card>

@@ -24,7 +24,8 @@ export const TaskStatusSelect = ({cisse}) => {
         <SelectContent>{SelectElements}</SelectContent>
       </Select>
       <input type="text" value={cisse.id} readOnly name="taskId" className="hidden"/>
-      <Button type='submit'>save</Button>
+      <div className="flex justify-end"><Button className='dark:bg-white' type='submit'>save</Button></div>
+      
     </form>
   );
 };

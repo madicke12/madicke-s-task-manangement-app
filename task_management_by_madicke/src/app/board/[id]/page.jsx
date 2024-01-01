@@ -13,6 +13,7 @@ const boardPage = async ({ params: params }) => {
       columns: { include: { Tasks: { include: { Subtasks: true } } } },
     },
   });
+
   return (
     <>
       <Navbar boardName={Board.name} id={id} />
